@@ -13,6 +13,11 @@ $(function () {
 
 });
 
+for (var i = 0; i < kepek.length; i++) {
+    var elem = '<div>' + i + '</div>';
+    $("article").append(elem);
+}
+
 var kep1 = {
     eleresiUt: "kepek/....jpg",
     alt: "kép címe"
