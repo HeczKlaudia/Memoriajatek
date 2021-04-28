@@ -2,55 +2,56 @@
 var index = 0;
 
 var kep1 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 var kep2 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 var kep3 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 var kep4 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 var kep5 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 var kep6 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 var kep7 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 var kep8 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 var kep9 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
-};var kep10 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
+};
+var kep10 = {
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 var kep11 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 var kep12 = {
-    eleresiUt: "kepek/....jpg",
-    alt: "kép címe"
+    eleresiUt: "kepek/yoda.jpg",
+    alt: "baby yoda"
 };
 
 
-var kepek = [kep1,kep2,kep3,kep4,kep5,kep6,kep7,kep8,kep9,kep10,kep11,kep12]; //fontos hogy mögötte legyen
+var kepek = [kep1, kep2, kep3, kep4, kep5, kep6, kep7, kep8, kep9, kep10, kep11, kep12]; //fontos hogy mögötte legyen
 var elso = true;
 var elozo;
 var alap;
@@ -68,31 +69,27 @@ $(function () {
 //    $("article img").eq(1).attr("alt", kepek[1].alt);
 //    $("article img").click(kattintasra);
 
-
+    modositasok();
 });
+function modositasok() {
+    for (var i = 0; i < kepek.length; i++) {
+        $("#jatekter img").append(i);
+    }
 
-for (var i = 0; i < kepek.length; i++) {
-    var elem = '<div>' + i + '</div>';
-    $("article").append(elem);
-}
-
-
-    var kepElemTomb = $("article div img");
-    var cimElemTomb = $("article div h3");
-    var leirasElemTomb = $("article div p");
+    var kepElemTomb = $("section div img");
+    var leirasElemTomb = $("section div");
 
     for (var i = 0; i < kepElemTomb.length; i++) {
 //        console.log(kepTomb[i].eleresiut);
-        kepElemTomb.eq(i).attr("src", kepek[i].eleresiut);
-        cimElemTomb.eq(i).html(kepek[index].cim);
-        leirasElemTomb.eq(i).html(kepek[index].leiras);
+        kepElemTomb.eq(i).attr("src", kepek[i].eleresiUt);
+        leirasElemTomb.eq(i).html(kepek[index].alt);
     }
 
-    //kattintás eseménykezelő a kisképre
+//kattintás eseménykezelő a kisképre
     for (var i = 0; i < kepElemTomb.length; i++) {
         kepElemTomb[i].click(kepCsere);
     }
-
+}
 
 function kattintasra() {
     $(this).attr("src", "kepek/...");

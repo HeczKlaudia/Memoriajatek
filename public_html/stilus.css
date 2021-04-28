@@ -10,7 +10,6 @@ main{
     display: grid;
     grid-template-areas:
      "h h h"
-<<<<<<< HEAD
      "s s s"
      "s s s"
      "s s s";
@@ -19,9 +18,6 @@ main{
 
 img {
     width: 250px;
-=======
-     "s s s";
->>>>>>> 6ff9c2004cea4f1d41a917cab7c061d8776a0797
 }
 
 header{
