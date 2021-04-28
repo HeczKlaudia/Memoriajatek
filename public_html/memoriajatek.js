@@ -48,6 +48,10 @@ var kep12 = {
     eleresiUt: "kepek/yoda.jpg",
     alt: "baby yoda"
 };
+var kep13 = {
+    eleresiUt: "kepek/hatoldal.jpeg",
+    alt: "hatoldal"
+};
 
 
 
@@ -71,13 +75,23 @@ $(function () {
 
     modositasok();
     $("button").click(kezd);
+    
+    
 
 });
 function modositasok() {
     for (var i = 0; i < kepek.length; i++) {
 // $("#jatekter img").append(i);
-        var elem = '<img id="' + i + '" src="" alt=""/>';
-        $("section img").append(elem);
+        var elem = '<img id="' + i + '">';
+        $("section").append(elem);
+    }
+
+    var kepElemTomb = $("section img");
+
+    for (var i = 0; i < kepElemTomb.length; i++) {
+        kepElemTomb.eq(i).attr("src", kepek[i].eleresiUt);
+//        kepElemTomb.eq(i).attr("id", i);
+        kepElemTomb.eq(i).attr("alt", kepek[i].alt);
     }
 }
 
@@ -86,7 +100,12 @@ function kattintasra() {
     $(this).attr("alt", "valami");
 }
 function kezd() {
-    for (var i = 0; i < kepek.lenght; i++) {
-         $("section img").eq(i).attr("src",kep13.eleresiUt);
+    for (var i = 0; i < kepek.length; i++) {
+        $("section img").eq(i).attr("src", kep13.eleresiUt);
     }
+    $("section img").click(ellenoriz);
+    kever();
+}
+function kever(){
+    
 }
