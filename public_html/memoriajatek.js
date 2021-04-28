@@ -76,6 +76,7 @@ $(function () {
     $("button").click(kezd);
     
     
+    
 
 });
 function modositasok() {
@@ -116,12 +117,22 @@ function ellenoriz() {
     if (kepek.eleresiUt === kepek.eleresiUt) {
         pontok ++;
     } else {
-        
+        ellenoriz().remove(ellenoriz());
         setTimeout(visszafordit, 1000);
     }
+    console.log(pontok);
 }
 
 function visszafordit() {
     kezd();
     kattintasra();
+}
+
+function fordit() {
+    for (var i = 0; i < kepek.length; i++) {
+        $(this).eq(i).attr("src", kepek[i].eleresiUt);
+        elozo = kepek[i];
+        elso !== 0;
+    }
+    fordit().remove(kattintas());
 }
