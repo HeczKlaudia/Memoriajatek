@@ -10,8 +10,7 @@ main{
     display: grid;
     grid-template-areas:
      "h h h"
-     "s s s"
-     "f f f";
+     "s s s";
 }
 header{
     grid-area: h;
