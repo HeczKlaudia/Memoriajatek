@@ -1,5 +1,3 @@
-
-
 var kep1 = {
     eleresiUt: "kepek/yoda.jpg",
     alt: "baby yoda"
@@ -60,6 +58,7 @@ var elso = true;
 var elozo;
 var alap;
 var pontok = 0;
+var lepesSzamlalo = 0;
 
 $(function () {
 //    $("article").html("Helo");
@@ -96,9 +95,9 @@ function modositasok() {
 }
 
 function kattintasra() {
-    $(this).attr("src", "kepek/...");
-    $(this).attr("alt", "valami");
+    kepek;
 }
+
 function kezd() {
     for (var i = 0; i < kepek.length; i++) {
         $("section img").eq(i).attr("src", kep13.eleresiUt);
@@ -108,4 +107,21 @@ function kezd() {
 }
 function kever(){
     
+
+}
+
+function ellenoriz() {
+    fordit();
+    lepesSzamlalo ++;
+    if (kepek.eleresiUt === kepek.eleresiUt) {
+        pontok ++;
+    } else {
+        
+        setTimeout(visszafordit, 1000);
+    }
+}
+
+function visszafordit() {
+    kezd();
+    kattintasra();
 }
