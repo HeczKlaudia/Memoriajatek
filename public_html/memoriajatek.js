@@ -69,7 +69,11 @@ $(function () {
 //    $("article img").eq(1).attr("alt", kepek[1].alt);
 //    $("article img").click(kattintasra);
 
+<<<<<<< HEAD
     modositasok();
+=======
+$("button").click(kezd);
+>>>>>>> 65162467587aee5dd00a8722c6faed9fb2f80d13
 });
 function modositasok() {
     for (var i = 0; i < kepek.length; i++) {
@@ -94,4 +98,7 @@ function modositasok() {
 function kattintasra() {
     $(this).attr("src", "kepek/...");
     $(this).attr("alt", "valami");
+}
+function kezd(){
+    
 }
