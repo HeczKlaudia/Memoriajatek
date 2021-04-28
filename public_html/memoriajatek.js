@@ -68,7 +68,7 @@ $(function () {
 //    $("article img").eq(1).attr("alt", kepek[1].alt);
 //    $("article img").click(kattintasra);
 
-
+$("button").click(kezd);
 });
 
 for (var i = 0; i < kepek.length; i++) {
@@ -97,4 +97,7 @@ for (var i = 0; i < kepek.length; i++) {
 function kattintasra() {
     $(this).attr("src", "kepek/...");
     $(this).attr("alt", "valami");
+}
+function kezd(){
+    
 }
