@@ -1,5 +1,5 @@
 @charset "utf-8";
-header,section,footer{
+header,section{
     border: 1px solid grey;
 }
 main{
@@ -11,15 +11,19 @@ main{
     grid-template-areas:
      "h h h"
      "s s s"
-     "f f f";
+     "s s s"
+     "s s s";
+    grid-template-columns: 1fr 1fr 1fr;
 }
+
+img {
+    width: 250px;
+}
+
 header{
     grid-area: h;
 }
 section{
      grid-area: s;
-}
-footer{
-    grid-area: f;
 }
 
