@@ -1,0 +1,25 @@
+@charset "utf-8";
+header,section,footer{
+    border: 1px solid grey;
+}
+main{
+    max-width: 800px;
+    margin: auto;
+}
+main{
+    display: grid;
+    grid-template-areas:
+     "h h h"
+     "s s s"
+     "f f f";
+}
+header{
+    grid-area: h;
+}
+section{
+     grid-area: s;
+}
+footer{
+    grid-area: f;
+}
+
