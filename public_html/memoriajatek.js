@@ -49,6 +49,10 @@ var kep12 = {
     eleresiUt: "kepek/yoda.jpg",
     alt: "baby yoda"
 };
+var kep13 = {
+    eleresiUt: "kepek/hatoldal.jpg",
+    alt: "hatoldal"
+};
 
 
 var kepek = [kep1, kep2, kep3, kep4, kep5, kep6, kep7, kep8, kep9, kep10, kep11, kep12]; //fontos hogy mögötte legyen
@@ -69,36 +73,33 @@ $(function () {
 //    $("article img").eq(1).attr("alt", kepek[1].alt);
 //    $("article img").click(kattintasra);
 
-<<<<<<< HEAD
     modositasok();
-=======
-$("button").click(kezd);
->>>>>>> 65162467587aee5dd00a8722c6faed9fb2f80d13
+
+    $("button").click(kezd);
+
 });
 function modositasok() {
     for (var i = 0; i < kepek.length; i++) {
-        $("#jatekter img").append(i);
+        var elem = '<img id="' + i + '">';
+        $("section").append(elem);
     }
 
-    var kepElemTomb = $("section div img");
-    var leirasElemTomb = $("section div");
+    var kepElemTomb = $("section img");
 
     for (var i = 0; i < kepElemTomb.length; i++) {
-//        console.log(kepTomb[i].eleresiut);
         kepElemTomb.eq(i).attr("src", kepek[i].eleresiUt);
-        leirasElemTomb.eq(i).html(kepek[index].alt);
+//        kepElemTomb.eq(i).attr("id", i);
+        kepElemTomb.eq(i).attr("alt", kepek[i].alt);
     }
 
-//kattintás eseménykezelő a kisképre
-    for (var i = 0; i < kepElemTomb.length; i++) {
-        kepElemTomb[i].click(kepCsere);
-    }
 }
 
 function kattintasra() {
     $(this).attr("src", "kepek/...");
     $(this).attr("alt", "valami");
 }
-function kezd(){
-    
+function kezd() {
+    for (var i = 0; i < kepek.length; i++) {
+        $("section img").eq(i).attr("src", kep13.eleresiUt);
+    }
 }
