@@ -1,5 +1,5 @@
 @charset "utf-8";
-header,section{
+header,section,footer{
     border: 1px solid grey;
 }
 main{
@@ -11,9 +11,7 @@ main{
     grid-template-areas:
      "h h h"
      "s s s"
-     "s s s"
-     "s s s";
-    grid-template-columns: 1fr 1fr 1fr;
+     "f f f";
 }
 
 img {
@@ -23,8 +21,16 @@ img {
 
 header{
     grid-area: h;
+    text-align: center;
 }
 section{
      grid-area: s;
 }
-
+footer{
+   grid-area: f; 
+   text-align: center;
+   padding: 5px;
+}
+button{
+    margin: 20px;
+}

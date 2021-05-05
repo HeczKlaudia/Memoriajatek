@@ -47,13 +47,14 @@ var kep12 = {
     alt: "baby yoda"
 };
 var kep13 = {
-    eleresiUt: "kepek/hatoldal.jpeg",
+    eleresiUt: "kepek/hatoldal.png",
     alt: "hatoldal"
 };
 
 
 
 var kepek= [kep1, kep2, kep3, kep4, kep5, kep6, kep7, kep8, kep9, kep10, kep11, kep12]; //fontos hogy mögötte legyen
+var tomb = [];
 var elso = true;
 var elozo;
 var alap;
@@ -61,36 +62,20 @@ var pontok = 0;
 var lepesSzamlalo = 0;
 
 $(function () {
-//    $("article").html("Helo");
-//    $("article").append("<img>");
-////    $("article img").attr("src", "kepek/...");
-//    $("article img").eq(0).attr("src", kepek[0].eleresiUt);
-////    $("article img").attr("alt", "valami");
-//    $("article img").eq(0).attr("alt", kepek[0].alt);
-//    $("article").append("<img>");
-//    $("article img").eq(1).attr("src", kepek[1].eleresiUt);
-//    $("article img").eq(1).attr("alt", kepek[1].alt);
-//    $("article img").click(kattintasra);
-
     modositasok();
+    kezd();
     $("button").click(kezd);
-    
-    
-    
-
 });
 function modositasok() {
+
     for (var i = 0; i < kepek.length; i++) {
-// $("#jatekter img").append(i);
+
         var elem = '<img id="' + i + '">';
         $("section").append(elem);
     }
-
     var kepElemTomb = $("section img");
-
     for (var i = 0; i < kepElemTomb.length; i++) {
         kepElemTomb.eq(i).attr("src", kepek[i].eleresiUt);
-//        kepElemTomb.eq(i).attr("id", i);
         kepElemTomb.eq(i).attr("alt", kepek[i].alt);
     }
 }
@@ -106,33 +91,45 @@ function kezd() {
     $("section img").click(ellenoriz);
     kever();
 }
-function kever(){
-    
+function kever() {
+    elso = true;
+    pontok = 0;
+    lepesSzamlalo = 0;
+    kepek.sort(function () {
+        return 0.5 - Math.random();
+    });
 
 }
 
 function ellenoriz() {
-    fordit();
-    lepesSzamlalo ++;
-    if (kepek.eleresiUt === kepek.eleresiUt) {
-        pontok ++;
+//    console.log($(this).attr("id"));//ki iratom a consolra az id-t amire kattintok
+    fordit($(this).attr("id"));
+    lepesSzamlalo++;
+    if (elozo === alap) {
+        pontok++;
     } else {
-        ellenoriz().remove(ellenoriz());
-        setTimeout(visszafordit, 1000);
+       id = setTimeout(visszafordit, 2000);
     }
-    console.log(pontok);
+
+}
+
+
+function fordit(id) {
+    $("section img").eq(id).attr("src", kepek[id].eleresiUt);
+    elso = !elso;//ha az elso true volt akkor az első legyen false
+    $("section img").eq(id).unbind("click");//leiratkozik a kattintós eseményt az adott id elemekről
+    if(elso){
+        elozo = id;
+    }else{
+        alap = id;
+    }
+
 }
 
 function visszafordit() {
-    kezd();
-    kattintasra();
+$("section img").eq(elozo).attr("src", kep13.eleresiUt);
+$("section img").eq(alap).attr("src", kep13.eleresiUt);
+$("section img").eq(elozo).click(ellenoriz);//vissza állítja a kattintás érzékelőjét
+$("section img").eq(alap).click(ellenoriz);
 }
-
-function fordit() {
-    for (var i = 0; i < kepek.length; i++) {
-        $(this).eq(i).attr("src", kepek[i].eleresiUt);
-        elozo = kepek[i];
-        elso !== 0;
-    }
-    fordit().remove(kattintas());
-}
+   
