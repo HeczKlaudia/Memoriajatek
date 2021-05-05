@@ -67,7 +67,6 @@ $(function () {
     $("button").click(kezd);
 });
 function modositasok() {
-
     for (var i = 0; i < kepek.length; i++) {
 
         var elem = '<img id="' + i + '">';
@@ -103,33 +102,47 @@ function kever() {
 
 function ellenoriz() {
 //    console.log($(this).attr("id"));//ki iratom a consolra az id-t amire kattintok
-    fordit($(this).attr("id"));
-    lepesSzamlalo++;
-    if (elozo === alap) {
-        pontok++;
-    } else {
-       id = setTimeout(visszafordit, 2000);
-    }
 
+    fordit($(this).attr("id"));
+//    console.log("asd");
+//    console.log(  $( $("section img").eq(elozo)).attr("src"));
+//    console.log( ( $("section img").eq(alap)).attr("src"));
+    lepesSzamlalo++;
+    /*Ha elso igaz akkor előszőr megnézi hogy a két kép egyezik e és ha igen akkor a pontokat növeli
+     különben ha nem egyezik be állítunk egy időzítőt hogy foduljon vissza és ebben hívjuk (a setTimeoutban) a visszafordít fügvényt és  paramétereket átadjuk(eloz,alap)*/
+    if (elso) {
+        if ($("section img").eq(elozo).attr("src") === $("section img").eq(alap).attr("src")) {
+            pontok++;
+        } else {
+            visszafordit(elozo, alap);
+//            setTimeout(visszafordit, 500, elozo, alap);//elozo,alap-->át adjuk paraméterkélnt a fügvénynek
+
+        }
+    }
 }
 
 
 function fordit(id) {
     $("section img").eq(id).attr("src", kepek[id].eleresiUt);
-    elso = !elso;//ha az elso true volt akkor az első legyen false
+//    elso = !elso;//ha az elso true volt akkor az első legyen false
     $("section img").eq(id).unbind("click");//leiratkozik a kattintós eseményt az adott id elemekről
-    if(elso){
+    if (elso) {
         elozo = id;
-    }else{
+        elso = false;
+    } else {
+        elso = true;
         alap = id;
     }
 
 }
 
-function visszafordit() {
-$("section img").eq(elozo).attr("src", kep13.eleresiUt);
-$("section img").eq(alap).attr("src", kep13.eleresiUt);
-$("section img").eq(elozo).click(ellenoriz);//vissza állítja a kattintás érzékelőjét
-$("section img").eq(alap).click(ellenoriz);
+function visszafordit(id1, id2) {
+    setTimeout(
+            function idozetes(id1,id2) {
+                $("section img").eq(id1).attr("src", kep13.eleresiUt);
+                $("section img").eq(id2).attr("src", kep13.eleresiUt);
+                $("section img").eq(id1).click(ellenoriz);//vissza állítja a kattintás érzékelőjét
+                $("section img").eq(id2).click(ellenoriz);
+            },500,id1,id2);
+
 }
-   
